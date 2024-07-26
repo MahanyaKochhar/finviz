@@ -32,7 +32,7 @@ def get_stock(ticker):
     get_page(ticker)
     page_parsed = STOCK_PAGE[ticker]
 
-    title = page_parsed.cssselect('div[class="fv-container"]')[0]
+    title = page_parsed.cssselect('div[class="fv-container py-2.5 "]')[0]
     data = {}
     data["Ticker"] = title.cssselect('h1[class="js-recent-quote-ticker quote-header_ticker-wrapper_ticker"]')[0].text_content().strip()
     try:
@@ -210,3 +210,6 @@ def get_analyst_price_targets(ticker, last_ratings=5):
         pass
 
     return analyst_price_targets[:last_ratings]
+
+
+
